@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-go-app-svc
+spec:
+  type: LoadBalancer
+  ports:
+  - name: my-go-app-svc
+    port: 8080
+    targetPort: 3000
+  selector:
+    name: my-go-app-demo

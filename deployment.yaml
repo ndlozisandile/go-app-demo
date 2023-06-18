@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-go-app-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-app-demo
+  template:
+    metadata:
+      labels:
+        app: go-app-demo
+    spec:
+      containers:
+      - name: go-app-container
+        image: mrndlozi/go-app-demo
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
